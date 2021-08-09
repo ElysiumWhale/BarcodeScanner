@@ -18,6 +18,8 @@ final class ScannerVC: UIViewController {
     
     weak var scannerDelegate: ScannerVCDelegate?
     
+    private var haveAccess: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCaptureSession()
@@ -80,11 +82,12 @@ final class ScannerVC: UIViewController {
         previewLayer!.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer!)
         
+        haveAccess = true
         captureSession.startRunning()
     }
     
     func startScan() {
-        if !captureSession.isRunning {
+        if !captureSession.isRunning && haveAccess {
             captureSession.startRunning()
         }
     }

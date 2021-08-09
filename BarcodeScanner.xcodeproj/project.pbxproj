@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,10 @@
 		1444103626A218EC005F32CF /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444103526A218EC005F32CF /* ScannerView.swift */; };
 		1444103826A225B7005F32CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444103726A225B7005F32CF /* Alert.swift */; };
 		1444103A26A228FE005F32CF /* BarcodeScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444103926A228FE005F32CF /* BarcodeScannerViewModel.swift */; };
+		14C6F5DA26C1D6BF00661FF1 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 14C6F5D926C1D6BF00661FF1 /* SFSafeSymbols */; };
+		14C6F5DF26C1E4FA00661FF1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C6F5DE26C1E4FA00661FF1 /* Extensions.swift */; };
+		14C6F5E326C1E56F00661FF1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C6F5E226C1E56F00661FF1 /* Strings.swift */; };
+		14C6F5E426C1E68F00661FF1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14C6F5E626C1E68F00661FF1 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		1444103526A218EC005F32CF /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		1444103726A225B7005F32CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		1444103926A228FE005F32CF /* BarcodeScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewModel.swift; sourceTree = "<group>"; };
+		14C6F5DE26C1E4FA00661FF1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		14C6F5E226C1E56F00661FF1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		14C6F5E526C1E68F00661FF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		14C6F5E726C1E6B100661FF1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14C6F5DA26C1D6BF00661FF1 /* SFSafeSymbols in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,7 +53,8 @@
 		1444101826A1FE17005F32CF = {
 			isa = PBXGroup;
 			children = (
-				1444102326A1FE17005F32CF /* BarcodeScanner */,
+				1444102326A1FE17005F32CF /* Sources */,
+				14C6F5DB26C1E1EC00661FF1 /* Resources */,
 				1444102226A1FE17005F32CF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,18 +67,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1444102326A1FE17005F32CF /* BarcodeScanner */ = {
+		1444102326A1FE17005F32CF /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				1444103F26A22B0E005F32CF /* Utilities */,
 				1444103D26A22AEB005F32CF /* Views */,
 				1444103B26A22ACE005F32CF /* Screens */,
 				1444102426A1FE17005F32CF /* BarcodeScannerApp.swift */,
-				1444102826A1FE19005F32CF /* Assets.xcassets */,
-				1444102D26A1FE19005F32CF /* Info.plist */,
-				1444102A26A1FE19005F32CF /* Preview Content */,
 			);
-			path = BarcodeScanner;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		1444102A26A1FE19005F32CF /* Preview Content */ = {
@@ -117,8 +124,21 @@
 			isa = PBXGroup;
 			children = (
 				1444103726A225B7005F32CF /* Alert.swift */,
+				14C6F5DE26C1E4FA00661FF1 /* Extensions.swift */,
+				14C6F5E226C1E56F00661FF1 /* Strings.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		14C6F5DB26C1E1EC00661FF1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1444102D26A1FE19005F32CF /* Info.plist */,
+				14C6F5E626C1E68F00661FF1 /* Localizable.strings */,
+				1444102826A1FE19005F32CF /* Assets.xcassets */,
+				1444102A26A1FE19005F32CF /* Preview Content */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +157,9 @@
 			dependencies = (
 			);
 			name = BarcodeScanner;
+			packageProductDependencies = (
+				14C6F5D926C1D6BF00661FF1 /* SFSafeSymbols */,
+			);
 			productName = BarcodeScanner;
 			productReference = 1444102126A1FE17005F32CF /* BarcodeScanner.app */;
 			productType = "com.apple.product-type.application";
@@ -162,8 +185,12 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 1444101826A1FE17005F32CF;
+			packageReferences = (
+				14C6F5D826C1D6BF00661FF1 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
+			);
 			productRefGroup = 1444102226A1FE17005F32CF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -180,6 +207,7 @@
 			files = (
 				1444102C26A1FE19005F32CF /* Preview Assets.xcassets in Resources */,
 				1444102926A1FE19005F32CF /* Assets.xcassets in Resources */,
+				14C6F5E426C1E68F00661FF1 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,20 +220,35 @@
 			files = (
 				1444103A26A228FE005F32CF /* BarcodeScannerViewModel.swift in Sources */,
 				1444103426A212EF005F32CF /* ScannerVC.swift in Sources */,
+				14C6F5E326C1E56F00661FF1 /* Strings.swift in Sources */,
 				1444103626A218EC005F32CF /* ScannerView.swift in Sources */,
 				1444102726A1FE17005F32CF /* BarcodeScannerView.swift in Sources */,
 				1444103826A225B7005F32CF /* Alert.swift in Sources */,
 				1444102526A1FE17005F32CF /* BarcodeScannerApp.swift in Sources */,
+				14C6F5DF26C1E4FA00661FF1 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		14C6F5E626C1E68F00661FF1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14C6F5E526C1E68F00661FF1 /* en */,
+				14C6F5E726C1E6B100661FF1 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1444102E26A1FE19005F32CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -267,6 +310,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -324,10 +368,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"BarcodeScanner/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 235K7U278B;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = BarcodeScanner/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -346,10 +390,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"BarcodeScanner/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 235K7U278B;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = BarcodeScanner/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -384,6 +428,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		14C6F5D826C1D6BF00661FF1 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/piknotech/SFSafeSymbols";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		14C6F5D926C1D6BF00661FF1 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14C6F5D826C1D6BF00661FF1 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1444101926A1FE17005F32CF /* Project object */;
 }

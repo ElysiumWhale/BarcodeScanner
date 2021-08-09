@@ -8,11 +8,7 @@ struct BarcodeScannerView: View {
             ScannerView(result: $viewModel.result, isScanning: $viewModel.isScanning)
                 .ignoresSafeArea()
             VStack {
-                Text("Barcode scanner")
-                    .font(.title)
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: .top)
-                    .background(Color(.sRGB, red: 0.1, green: 0.1, blue: 0.1, opacity: 0.5).ignoresSafeArea(.all, edges: .top))
+                TitleView()
                 Spacer()
                 VStack {
                     Label("Scanned barcode:", systemImage: "barcode.viewfinder")
@@ -24,11 +20,9 @@ struct BarcodeScannerView: View {
                         .bold()
                         .padding(.all, 5)
                         .contextMenu(ContextMenu(menuItems: {
-                          Button("Copy", action: {
-                            UIPasteboard.general.string = viewModel.statusText
-                          })
+                            Button(Strings.copy.localized, action: { UIPasteboard.general.string = viewModel.statusText })
                         }))
-                    Button("Scan again") {
+                    Button(Strings.scanAgain.localized) {
                         viewModel.isScanning = true
                         viewModel.result = .failure(.notScannedYet())
                     }
@@ -44,6 +38,17 @@ struct BarcodeScannerView: View {
                 .background(Color(.sRGB, red: 0.1, green: 0.1, blue: 0.1, opacity: 0.5).ignoresSafeArea(.all, edges: .bottom))
             }
         }
+    }
+}
+
+struct TitleView: View {
+    var body: some View {
+        Text(Strings.barcodeScanner.localized)
+            .font(.title)
+            .foregroundColor(.white)
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .top)
+            .background(Color(.sRGB, red: 0.1, green: 0.1, blue: 0.1, opacity: 0.5).ignoresSafeArea(.all, edges: .top))
     }
 }
 
