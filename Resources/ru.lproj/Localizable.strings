@@ -11,3 +11,9 @@
 "Scan again" = "Сканировать снова";
 
 "Barcode scanner" = "Barcode scanner";
+
+"Scanned barcode:" = "Отсканированный код";
+
+"Put your camera on code" = "Наведите камеру на код";
+
+"Invalid device input" = "Неккоректный ввод с устройства";
