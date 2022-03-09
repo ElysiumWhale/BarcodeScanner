@@ -18,7 +18,7 @@ final class BarcodeScannerViewModel: ObservableObject {
                 return code
         }
     }
-    
+
     var statusTextColor: Color {
         switch result {
             case .success:

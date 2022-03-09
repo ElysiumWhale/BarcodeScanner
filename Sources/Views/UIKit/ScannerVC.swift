@@ -15,7 +15,7 @@ protocol ScannerVCDelegate: AnyObject {
 final class ScannerVC: UIViewController {
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer?
-    
+
     weak var scannerDelegate: ScannerVCDelegate?
     
     private var haveAccess: Bool = false
@@ -24,15 +24,15 @@ final class ScannerVC: UIViewController {
         super.viewDidLoad()
         setupCaptureSession()
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+
         guard let layer = previewLayer else {
             scannerDelegate?.didFind(error: .invalidDeviceInput())
             return
         }
-        
+
         layer.frame = view.layer.bounds
     }
     
@@ -66,7 +66,7 @@ final class ScannerVC: UIViewController {
             scannerDelegate?.didFind(error: .invalidDeviceInput())
             return
         }
-        
+
         let metaDataOutput = AVCaptureMetadataOutput()
         
         if captureSession.canAddOutput(metaDataOutput) {
@@ -77,7 +77,7 @@ final class ScannerVC: UIViewController {
             scannerDelegate?.didFind(error: .invalidDeviceInput())
             return
         }
-        
+
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer!.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer!)
@@ -85,7 +85,7 @@ final class ScannerVC: UIViewController {
         haveAccess = true
         captureSession.startRunning()
     }
-    
+
     func startScan() {
         if !captureSession.isRunning && haveAccess {
             captureSession.startRunning()
@@ -101,7 +101,7 @@ extension ScannerVC: AVCaptureMetadataOutputObjectsDelegate {
             scannerDelegate?.didFind(error: .invalidScannedValue())
             return
         }
-        
+
         captureSession.stopRunning()
         scannerDelegate?.didFind(barcode: barcode)
     }
