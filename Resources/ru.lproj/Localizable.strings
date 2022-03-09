@@ -17,3 +17,11 @@
 "Put your camera on code" = "Наведите камеру на код";
 
 "Invalid device input" = "Неккоректный ввод с устройства";
+
+"Unable to capture the input" = "Захват видео невозможен";
+
+"Invalid scan type" = "Сканирован неверный тип";
+
+"Not scanned yet" = "Еще не сканировано";
+
+"Scanned value is not valid. This app scans EAN-8 and EAN-13" = "Сканированный код имеет неверный формат. Подходят EAN-8 и EAN-13";

@@ -17,3 +17,11 @@
 "Put your camera on code" = "Put your camera on code";
 
 "Invalid device input" = "Invalid device input";
+
+"Unable to capture the input" = "Unable to capture the input";
+
+"Invalid scan type" = "Invalid scan type";
+
+"Not scanned yet" = "Not scanned yet";
+
+"Scanned value is not valid. This app scans EAN-8 and EAN-13" = "Scanned value is not valid. This app scans EAN-8 and EAN-13";
