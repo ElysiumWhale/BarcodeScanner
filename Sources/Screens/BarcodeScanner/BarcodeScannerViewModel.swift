@@ -1,19 +1,16 @@
 import SwiftUI
 
 final class BarcodeScannerViewModel: ObservableObject {
-    @Published var result: Result<String, CameraError> = .failure(.notScannedYet())
-    
-    @Published var isScanning = true
-    
+    @Published
+    var result: Result<String, CameraError> = .failure(.notScannedYet())
+
+    @Published
+    var isScanning = true
+
     var statusText: String {
         switch result {
             case .failure(let error):
-                switch error {
-                    case .invalidDeviceInput(let alert),
-                         .invalidScannedValue(let alert),
-                         .notScannedYet(alert: let alert):
-                        return alert.title
-                }
+                return error.alertTitle
             case .success(let code):
                 return code
         }
@@ -26,5 +23,10 @@ final class BarcodeScannerViewModel: ObservableObject {
             case .failure:
                 return .red
         }
+    }
+
+    func scanAgain() {
+        isScanning = true
+        result = .failure(.notScannedYet())
     }
 }
