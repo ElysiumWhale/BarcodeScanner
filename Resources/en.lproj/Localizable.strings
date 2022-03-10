@@ -25,3 +25,7 @@
 "Not scanned yet" = "Not scanned yet";
 
 "Scanned value is not valid. This app scans EAN-8 and EAN-13" = "Scanned value is not valid. This app scans EAN-8 and EAN-13";
+
+"App has no camera access" = "App has no camera access";
+
+"Grant camera access for app to make scanning possible" = "Grant camera access for app to make scanning possible";

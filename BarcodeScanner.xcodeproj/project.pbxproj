@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140FA06027DA1D0000928AAE /* ScannedCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140FA05F27DA1D0000928AAE /* ScannedCodeView.swift */; };
 		1444102526A1FE17005F32CF /* BarcodeScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444102426A1FE17005F32CF /* BarcodeScannerApp.swift */; };
 		1444102726A1FE17005F32CF /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444102626A1FE17005F32CF /* BarcodeScannerView.swift */; };
 		1444102926A1FE19005F32CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1444102826A1FE19005F32CF /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		140FA05F27DA1D0000928AAE /* ScannedCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedCodeView.swift; sourceTree = "<group>"; };
 		1444102126A1FE17005F32CF /* BarcodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarcodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1444102426A1FE17005F32CF /* BarcodeScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerApp.swift; sourceTree = "<group>"; };
 		1444102626A1FE17005F32CF /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				145E3DD427D91BDC0011953C /* TitleView.swift */,
 				145E3DD627D91BE50011953C /* BottomView.swift */,
 				145E3DD827D91C620011953C /* BackgroundView.swift */,
+				140FA05F27DA1D0000928AAE /* ScannedCodeView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				1444102726A1FE17005F32CF /* BarcodeScannerView.swift in Sources */,
 				1444103826A225B7005F32CF /* Alert.swift in Sources */,
 				1444102526A1FE17005F32CF /* BarcodeScannerApp.swift in Sources */,
+				140FA06027DA1D0000928AAE /* ScannedCodeView.swift in Sources */,
 				14C6F5DF26C1E4FA00661FF1 /* Extensions.swift in Sources */,
 				145E3DD527D91BDC0011953C /* TitleView.swift in Sources */,
 			);
