@@ -19,24 +19,7 @@ struct ScannerView: UIViewControllerRepresentable {
         }
     }
 
-    func makeCoordinator() -> CameraCoordinator {
-        CameraCoordinator(scannerView: self)
-    }
-}
-
-final class CameraCoordinator: ScannerVCDelegate {
-    let scannerView: ScannerView
-
-    init(scannerView: ScannerView) {
-        self.scannerView = scannerView
-    }
-
-    func didFind(barcode: String) {
-        scannerView.result = .success(barcode)
-        scannerView.isScanning = false
-    }
-
-    func didFind(error: CameraError) {
-        scannerView.result = .failure(error)
+    func makeCoordinator() -> ScannerViewCoordinator {
+        ScannerViewCoordinator(scannerView: self)
     }
 }
