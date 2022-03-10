@@ -46,20 +46,15 @@ final class ScannerVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        guard let layer = previewLayer else {
-            scannerDelegate?.didFind(error: .invalidDeviceInput())
-            return
-        }
-
-        layer.frame = view.layer.bounds
+        previewLayer?.frame = view.layer.bounds
     }
 
     private func setupCaptureSession() {
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video),
               let videoInput = try? AVCaptureDeviceInput(device: videoCaptureDevice),
               captureSession.canAddInput(videoInput) else {
-            scannerDelegate?.didFind(error: .invalidDeviceInput())
-            return
+                  scannerDelegate?.didFind(error: .invalidDeviceInput(alert: .noPermission))
+                  return
         }
 
         captureSession.addInput(videoInput)
