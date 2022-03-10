@@ -2,14 +2,26 @@ import SwiftUI
 
 // MARK: - List viewModel
 final class CodeElementsListViewModel: ObservableObject {
-    let availableCodeTypes: [CodeElementViewModel] = [
+    static let availableCodeTypes: [CodeElementViewModel] = [
         .init(type: .ean8),
         .init(type: .ean13),
         .init(type: .qr)
     ]
 
+    var availableCodeTypes: [CodeElementViewModel] {
+        CodeElementsListViewModel.availableCodeTypes
+    }
+
     @Published
-    var selectedCodeTypes: [CodeElementViewModel] = []
+    var selectedCodeTypes: [CodeElementViewModel] = {
+        guard let codes: [String] = Defaults.get(for: .selectedCodeTypes) else {
+            return []
+        }
+
+        let persisted = availableCodeTypes.filter { codes.contains($0.type.rawValue) }
+        persisted.forEach { $0.isSelected = true }
+        return persisted
+    }()
 
     func select(_ type: CodeElementViewModel) {
         if let index = selectedCodeTypes.firstIndex(where: { $0 === type }) {
@@ -19,6 +31,13 @@ final class CodeElementsListViewModel: ObservableObject {
             type.isSelected = true
             selectedCodeTypes.append(type)
         }
+
+        persistSelected()
+    }
+
+    private func persistSelected() {
+        Defaults.set(value: selectedCodeTypes.map { $0.type.rawValue },
+                     for: .selectedCodeTypes)
     }
 }
 
