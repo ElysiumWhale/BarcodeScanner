@@ -8,10 +8,11 @@ struct BarcodeScannerView: View {
     var body: some View {
         ZStack {
             ScannerView(result: $viewModel.result,
-                        isScanning: $viewModel.isScanning)
+                        isScanning: $viewModel.isScanning,
+                        codeTypesList: viewModel.listViewModel)
                 .ignoresSafeArea()
             VStack {
-                TitleView()
+                TitleView(viewModel: viewModel.listViewModel)
                 Spacer()
                 BottomView(viewModel: viewModel)
             }
