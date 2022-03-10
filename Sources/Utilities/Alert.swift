@@ -6,6 +6,11 @@ struct AlertItem {
 }
 
 extension AlertItem {
+    static var noPermission: AlertItem {
+        AlertItem(title: .noPermission,
+                  message: .grantAccessToCamera)
+    }
+
     static var invalidDeviceInput: AlertItem {
         AlertItem(title: .invalidDeviceInput,
                   message: .unableToCaptureInput)

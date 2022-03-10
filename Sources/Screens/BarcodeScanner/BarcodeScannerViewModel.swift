@@ -7,12 +7,20 @@ final class BarcodeScannerViewModel: ObservableObject {
     @Published
     var isScanning = true
 
-    var statusText: String {
+    var isSuccess: Bool {
+        guard (try? result.get()) != nil else {
+            return false
+        }
+
+        return true
+    }
+
+    var statusText: (title: String, message: String) {
         switch result {
             case .failure(let error):
-                return error.alertTitle
+                return (error.alertTitle, error.alertMessage)
             case .success(let code):
-                return code
+                return (code, .empty)
         }
     }
 

@@ -11,7 +11,16 @@ enum CameraError: Error {
             case .invalidDeviceInput(let alert),
                  .invalidScannedValue(let alert),
                  .notScannedYet(let alert):
-                return alert.title
+                return alert.title.localized
+        }
+    }
+
+    var alertMessage: String {
+        switch self {
+            case .invalidDeviceInput(let alert),
+                    .invalidScannedValue(let alert),
+                    .notScannedYet(let alert):
+                return alert.message.localized
         }
     }
 }
