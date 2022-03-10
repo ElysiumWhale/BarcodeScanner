@@ -5,8 +5,7 @@ final class CodeElementsListViewModel: ObservableObject {
     let availableCodeTypes: [CodeElementViewModel] = [
         .init(type: .ean8),
         .init(type: .ean13),
-        .init(type: .qr),
-        .init(type: .face)
+        .init(type: .qr)
     ]
 
     @Published

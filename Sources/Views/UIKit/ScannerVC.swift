@@ -9,6 +9,8 @@ protocol ScannerVCDelegate: AnyObject {
 }
 
 final class ScannerVC: UIViewController, CaptureSessionController {
+    private let highlightView = UIView()
+
     let captureSession = AVCaptureSession()
 
     var previewLayer: AVCaptureVideoPreviewLayer?
@@ -25,6 +27,12 @@ final class ScannerVC: UIViewController, CaptureSessionController {
             case .success(let preview):
                 previewLayer = preview
                 view.layer.addSublayer(preview)
+
+                highlightView.layer.borderColor = UIColor.green.cgColor
+                highlightView.layer.borderWidth = 3
+                highlightView.layer.cornerRadius = 10
+                view.addSubview(highlightView)
+                view.bringSubviewToFront(highlightView)
             case .failure(let error):
                 scannerDelegate?.didFind(error: error)
         }
@@ -42,6 +50,8 @@ final class ScannerVC: UIViewController, CaptureSessionController {
         }
 
         if !captureSession.isRunning && hasAccess {
+            view.sendSubviewToBack(highlightView)
+            highlightView.frame = .zero
             captureSession.startRunning()
         }
     }
@@ -64,6 +74,11 @@ extension ScannerVC: AVCaptureMetadataOutputObjectsDelegate {
               let barcode = readableObject.stringValue else {
             scannerDelegate?.didFind(error: .invalidScannedValue())
             return
+        }
+
+        if let detectedObject = previewLayer?.transformedMetadataObject(for: readableObject) {
+            highlightView.frame = detectedObject.bounds
+            view.bringSubviewToFront(highlightView)
         }
 
         captureSession.stopRunning()
