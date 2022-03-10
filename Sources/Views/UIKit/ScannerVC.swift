@@ -1,6 +1,7 @@
 import UIKit
 import AVFoundation
 
+typealias CodeType = AVMetadataObject.ObjectType
 
 protocol ScannerVCDelegate: AnyObject {
     func didFind(barcode: String)
