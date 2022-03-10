@@ -8,17 +8,26 @@ protocol ScannerVCDelegate: AnyObject {
     func didFind(error: CameraError)
 }
 
-final class ScannerVC: UIViewController {
+final class ScannerVC: UIViewController, CaptureSessionController {
     let captureSession = AVCaptureSession()
+
     var previewLayer: AVCaptureVideoPreviewLayer?
+    var hasAccess: Bool = false
 
-    weak var scannerDelegate: ScannerVCDelegate?
+    private(set) var metaDataOutput = AVCaptureMetadataOutput()
 
-    private var hasAccess: Bool = false
+    private(set) weak var scannerDelegate: ScannerVCDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCaptureSession()
+
+        switch setupCaptureSession(for: []) {
+            case .success(let preview):
+                previewLayer = preview
+                view.layer.addSublayer(preview)
+            case .failure(let error):
+                scannerDelegate?.didFind(error: error)
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -27,41 +36,25 @@ final class ScannerVC: UIViewController {
         previewLayer?.frame = view.layer.bounds
     }
 
-    private func setupCaptureSession() {
-        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video),
-              let videoInput = try? AVCaptureDeviceInput(device: videoCaptureDevice),
-              captureSession.canAddInput(videoInput) else {
-                  scannerDelegate?.didFind(error: .invalidDeviceInput(alert: .noPermission))
-                  return
+    func startScan(with types: [CodeType]) {
+        if hasAccess {
+            metaDataOutput.metadataObjectTypes = types
         }
 
-        captureSession.addInput(videoInput)
-        let metaDataOutput = AVCaptureMetadataOutput()
-
-        guard captureSession.canAddOutput(metaDataOutput) else {
-            scannerDelegate?.didFind(error: .invalidDeviceInput())
-            return
-        }
-
-        captureSession.addOutput(metaDataOutput)
-        metaDataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-        metaDataOutput.metadataObjectTypes = [.ean8, .ean13]
-
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer!.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(previewLayer!)
-
-        hasAccess = true
-        captureSession.startRunning()
-    }
-
-    func startScan() {
         if !captureSession.isRunning && hasAccess {
             captureSession.startRunning()
         }
     }
 }
 
+extension ScannerVC {
+    func withDelegate(_ delegate: ScannerVCDelegate) -> Self {
+        scannerDelegate = delegate
+        return self
+    }
+}
+
+// MARK: - AVCaptureMetadataOutputObjectsDelegate
 extension ScannerVC: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput,
                         didOutput metadataObjects: [AVMetadataObject],

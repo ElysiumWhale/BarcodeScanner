@@ -7,15 +7,20 @@ struct ScannerView: UIViewControllerRepresentable {
     @Binding
     var isScanning: Bool
 
+    @ObservedObject
+    var codeTypesList: CodeElementsListViewModel
+
+    private var codeTypes: [CodeType] {
+        codeTypesList.selectedCodeTypes.map { $0.type }
+    }
+
     func makeUIViewController(context: Context) -> ScannerVC {
-        let vc = ScannerVC()
-        vc.scannerDelegate = context.coordinator
-        return vc
+        ScannerVC().withDelegate(context.coordinator)
     }
 
     func updateUIViewController(_ uiViewController: ScannerVC, context: Context) {
         if isScanning {
-            uiViewController.startScan()
+            uiViewController.startScan(with: codeTypes)
         }
     }
 
