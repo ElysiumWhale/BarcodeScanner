@@ -7,19 +7,10 @@ struct BottomView: View {
     var body: some View {
         VStack {
             Label(.from(.scannedCode), systemSymbol: .barcodeViewfinder)
-                .font(.title)
+                .font(.title2)
                 .foregroundColor(.white)
 
-            Text(viewModel.statusText)
-                .foregroundColor(viewModel.statusTextColor)
-                .font(.title)
-                .bold()
-                .padding(.all, 5)
-                .contextMenu(ContextMenu(menuItems: {
-                    Button(.from(.copy), action: {
-                        UIPasteboard.general.string = viewModel.statusText
-                    })
-                }))
+            ScannedCodeView(viewModel: viewModel)
 
             ScanButton(action: viewModel.scanAgain,
                        isScanning: viewModel.isScanning)
@@ -33,5 +24,6 @@ struct BottomView: View {
 struct BottomView_Previews: PreviewProvider {
     static var previews: some View {
         BottomView(viewModel: .init())
+            .locale(.ru)
     }
 }
