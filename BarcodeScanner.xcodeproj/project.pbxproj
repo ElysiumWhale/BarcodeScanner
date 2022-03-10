@@ -13,6 +13,7 @@
 		140FA06B27DA615F00928AAE /* CameraError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140FA06A27DA615F00928AAE /* CameraError.swift */; };
 		140FA06E27DA640A00928AAE /* CodeElementsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140FA06D27DA640A00928AAE /* CodeElementsListViewModel.swift */; };
 		140FA07027DA64DB00928AAE /* CaptureSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140FA06F27DA64DB00928AAE /* CaptureSessionController.swift */; };
+		140FA07327DA70F100928AAE /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140FA07227DA70F100928AAE /* Defaults.swift */; };
 		1444102526A1FE17005F32CF /* BarcodeScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444102426A1FE17005F32CF /* BarcodeScannerApp.swift */; };
 		1444102726A1FE17005F32CF /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444102626A1FE17005F32CF /* BarcodeScannerView.swift */; };
 		1444102926A1FE19005F32CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1444102826A1FE19005F32CF /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		140FA06A27DA615F00928AAE /* CameraError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraError.swift; sourceTree = "<group>"; };
 		140FA06D27DA640A00928AAE /* CodeElementsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeElementsListViewModel.swift; sourceTree = "<group>"; };
 		140FA06F27DA64DB00928AAE /* CaptureSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSessionController.swift; sourceTree = "<group>"; };
+		140FA07227DA70F100928AAE /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		1444102126A1FE17005F32CF /* BarcodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarcodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1444102426A1FE17005F32CF /* BarcodeScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerApp.swift; sourceTree = "<group>"; };
 		1444102626A1FE17005F32CF /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				14C6F5DE26C1E4FA00661FF1 /* Extensions.swift */,
 				14C6F5E226C1E56F00661FF1 /* Strings.swift */,
 				140FA06A27DA615F00928AAE /* CameraError.swift */,
+				140FA07227DA70F100928AAE /* Defaults.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				140FA07327DA70F100928AAE /* Defaults.swift in Sources */,
 				140FA06927DA60CB00928AAE /* ScannerViewCoordinator.swift in Sources */,
 				1444103A26A228FE005F32CF /* BarcodeScannerViewModel.swift in Sources */,
 				145E3DD327D90C880011953C /* ScanButton.swift in Sources */,
