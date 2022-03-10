@@ -7,6 +7,9 @@ final class BarcodeScannerViewModel: ObservableObject {
     @Published
     var isScanning = true
 
+    @Published
+    var listViewModel = CodeElementsListViewModel()
+
     var isSuccess: Bool {
         guard (try? result.get()) != nil else {
             return false

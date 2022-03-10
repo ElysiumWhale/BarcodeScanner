@@ -88,6 +88,7 @@
 		140FA06C27DA63F700928AAE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1444103926A228FE005F32CF /* BarcodeScannerViewModel.swift */,
 				140FA06D27DA640A00928AAE /* CodeElementsListViewModel.swift */,
 			);
 			path = ViewModel;
@@ -144,7 +145,6 @@
 				140FA06C27DA63F700928AAE /* ViewModel */,
 				145E3DD127D90C640011953C /* Subviews */,
 				1444102626A1FE17005F32CF /* BarcodeScannerView.swift */,
-				1444103926A228FE005F32CF /* BarcodeScannerViewModel.swift */,
 			);
 			path = BarcodeScanner;
 			sourceTree = "<group>";
