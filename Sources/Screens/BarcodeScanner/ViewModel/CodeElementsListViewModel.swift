@@ -30,7 +30,7 @@ final class CodeElementViewModel: ObservableObject, Identifiable {
     var isSelected = false
 
     var title: String {
-        type.rawValue
+        type.title
     }
 
     init(type: CodeType, isSelected: Bool = false) {
@@ -38,4 +38,3 @@ final class CodeElementViewModel: ObservableObject, Identifiable {
         self.isSelected = isSelected
     }
 }
-
