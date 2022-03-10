@@ -2,7 +2,7 @@
 
 SwiftUI app for scanning different code types.
 
-
+<img src="https://user-images.githubusercontent.com/38838291/157740543-5a855543-351e-45b1-af56-64fd9f99935f.PNG" width=350/>
 
 ## Features
 
